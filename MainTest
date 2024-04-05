@@ -1,0 +1,17 @@
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
+public class MainTest {
+
+    public static void main(String[] args) {
+        // Simulamos la entrada del usuario para las pruebas
+        String input = "4\n"; // Opción 4: Traducción automática
+        input += "texto.txt\n"; // Nombre del archivo con el texto
+        input += "5\n"; // Opción 5: Salir
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        // Ejecutar el main
+        DiccionarioTraductor.main(args);
+    }
+}
