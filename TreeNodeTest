@@ -1,0 +1,34 @@
+public class TreeNodeTest {
+
+    public static void main(String[] args) {
+        // Crear un árbol de prueba
+        TreeNode<Integer, String> root = new TreeNode<>(50, "Root");
+        TreeNode<Integer, String> node25 = new TreeNode<>(25, "Node25");
+        TreeNode<Integer, String> node75 = new TreeNode<>(75, "Node75");
+        TreeNode<Integer, String> node10 = new TreeNode<>(10, "Node10");
+        TreeNode<Integer, String> node35 = new TreeNode<>(35, "Node35");
+        TreeNode<Integer, String> node60 = new TreeNode<>(60, "Node60");
+        TreeNode<Integer, String> node90 = new TreeNode<>(90, "Node90");
+
+        root.set_left(node25);
+        root.set_right(node75);
+        node25.set_left(node10);
+        node25.set_right(node35);
+        node75.set_left(node60);
+        node75.set_right(node90);
+
+        // Imprimir el recorrido in-order
+        System.out.println("Recorrido In-order:");
+        recorridoInOrder(root);
+    }
+
+    private static void recorridoInOrder(TreeNode<Integer, String> raiz) {
+        if (raiz != null) {
+            recorridoInOrder(raiz.get_left());
+            if (raiz.get_priority() != null) {
+                System.out.println("(" + raiz.get_priority() + ", " + raiz.get_value() + ")");
+            }
+            recorridoInOrder(raiz.get_right());
+        }
+    }
+}
